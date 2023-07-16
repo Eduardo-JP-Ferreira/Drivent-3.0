@@ -10,12 +10,15 @@ async function findHotelById(userId: number) : Promise<Hotel>{
   return prisma.hotel.findFirst({
     where:{
       id: userId,
+    },
+    include: {
+      Rooms: true,
     }
   });
 }
 
-async function findHotelRooms(hotelId: number) {
-  return prisma.hotel.findMany({
+async function findHotelRooms(hotelId: number){
+  return prisma.hotel.findFirst({
     where:{
       id: hotelId,
     },
@@ -24,6 +27,7 @@ async function findHotelRooms(hotelId: number) {
     }
   });
 }
+
 
 export default {
   findHotels,

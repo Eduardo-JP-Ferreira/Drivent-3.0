@@ -28,7 +28,7 @@ async function getHotels(userId: number, res: Response): Promise<Hotel[]> {
   return hotels;
 }
 
-async function getHotelRooms(userId: number, hotelId: number, res: Response) {
+async function getHotelRooms(userId: number, hotelId: number, res: Response){
   const enrollment = await enrollmentRepository.findWithAddressByUserId(userId);
   if (!enrollment) throw notFoundError();
 
@@ -41,7 +41,7 @@ async function getHotelRooms(userId: number, hotelId: number, res: Response) {
     ticket.TicketType.includesHotel === false
   ) throw res.sendStatus(httpStatus.PAYMENT_REQUIRED);
 
-  const hotel= await hotelsRepository.findHotelById(hotelId);
+  const hotel = await hotelsRepository.findHotelById(hotelId);
   if (!hotel) throw notFoundError();
 
   // const rooms: Rooms = await hotelsRepository.findHotelRooms(hotelId);
@@ -53,7 +53,11 @@ async function getHotelRooms(userId: number, hotelId: number, res: Response) {
   //   image: hotel.image,
   //   createdAt: hotel.createdAt,
   //   updatedAt: hotel.updatedAt,
-  //   Rooms: rooms,
+  //   Rooms: [
+  //     {
+        
+  //     }
+  //   ],
   // }
 
   return hotel;

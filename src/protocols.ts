@@ -73,9 +73,7 @@ export type HotelRoom = {
   image: string,
   createdAt: Date,
   updatedAt: Date,
-  Rooms: [
-   Rooms
-  ]
+  Rooms: Rooms[]
 };
 
 export type Rooms = {
