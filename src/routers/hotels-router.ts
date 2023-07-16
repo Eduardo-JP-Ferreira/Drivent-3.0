@@ -5,7 +5,7 @@ import { getHotels } from '@/controllers';
 const hotelsRouter = Router();
 
 hotelsRouter
-  // .all('/*', authenticateToken)
+  .all('/*', authenticateToken)
   .get('/health', (_req, res) => res.send('OK!'))
   .get('/', getHotels)
   .get('/:hotelId') 
