@@ -17,20 +17,7 @@ async function findHotelById(userId: number) : Promise<Hotel>{
   });
 }
 
-async function findHotelRooms(hotelId: number){
-  return prisma.hotel.findFirst({
-    where:{
-      id: hotelId,
-    },
-    include: {
-      Rooms: true
-    }
-  });
-}
-
-
 export default {
   findHotels,
   findHotelById,
-  findHotelRooms,
 };

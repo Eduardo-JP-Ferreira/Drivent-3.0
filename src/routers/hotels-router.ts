@@ -10,5 +10,4 @@ hotelsRouter
   .get('/', getHotels)
   .get('/:hotelId', getHotelRoom) 
 
-
 export { hotelsRouter };

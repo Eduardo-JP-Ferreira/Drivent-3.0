@@ -21,7 +21,6 @@ import { createHotel } from '../factories/hotels-factory';
 
 beforeAll(async () => {
   await init();
-  // await cleanDb();
 });
 
 beforeEach(async () => {

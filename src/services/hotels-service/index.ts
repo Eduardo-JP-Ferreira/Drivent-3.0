@@ -7,8 +7,6 @@ import { Response } from 'express';
 import httpStatus from 'http-status';
 import { HotelRoom, Rooms } from '@/protocols';
 
-
-
 async function getHotels(userId: number, res: Response): Promise<Hotel[]> {
   const enrollment = await enrollmentRepository.findWithAddressByUserId(userId);
   if (!enrollment) throw notFoundError();
@@ -43,22 +41,6 @@ async function getHotelRooms(userId: number, hotelId: number, res: Response){
 
   const hotel = await hotelsRepository.findHotelById(hotelId);
   if (!hotel) throw notFoundError();
-
-  // const rooms: Rooms = await hotelsRepository.findHotelRooms(hotelId);
-  // if (!rooms || rooms.length === 0) throw notFoundError();
-    
-  // const result = {
-  //   id: hotel.id,
-  //   name: hotel.name,
-  //   image: hotel.image,
-  //   createdAt: hotel.createdAt,
-  //   updatedAt: hotel.updatedAt,
-  //   Rooms: [
-  //     {
-        
-  //     }
-  //   ],
-  // }
 
   return hotel;
 }
